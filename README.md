@@ -3,7 +3,7 @@ OpenEdge-URL-Handler
 
 Object class for handling URL/URI string.
 
-This is OpenEdge class object for parsing a URL string into into it's component properties.
+This is OpenEdge class object for parsing a URL string and spiting it into it's component properties.
 
 It does not build a URL string.
 
