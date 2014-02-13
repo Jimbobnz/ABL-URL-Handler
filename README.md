@@ -10,3 +10,7 @@ This is OpenEdge class object for parsing a URL string and spiting it into it's 
 	It does not URL decode query strings.
 
 	It does not validate or verify URL strings.
+
+## Example
+
+	See src/url-unittest.p
