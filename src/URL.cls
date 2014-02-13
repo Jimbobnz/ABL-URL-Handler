@@ -42,7 +42,7 @@ CLASS src.URL:
         chTempURL = pchURL.
 
         /** Starting from left to right. Get the Protocol first if it exists. **/
-        IF INDEX(chTempURL,'//') GT 0 THEN
+        IF LOGICAL( INDEX(chTempURL,'//') ) THEN
         DO:
             THIS-OBJECT:protocol = SUBSTRING(chTempURL, 1, INDEX(chTempURL,'//') - 1 ).
             
@@ -62,7 +62,7 @@ CLASS src.URL:
         END.
         
         /** Extract and Detach the userinfo if it exists.. **/
-        IF R-INDEX(chTempURL,'@') GT 0 THEN
+        IF LOGICAL( R-INDEX(chTempURL,'@')) THEN
         DO:
             THIS-OBJECT:USERINFO = SUBSTRING(chTempURL, 1,  R-INDEX(chTempURL,'@') - 1 ).
             chTempURL = SUBSTRING(chTempURL, R-INDEX(chTempURL,'@') + 1 ).
