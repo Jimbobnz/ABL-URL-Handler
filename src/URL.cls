@@ -1,15 +1,36 @@
+/*------------------------------------------------------------------------
+    File        : src/URL.cls
+    Purpose     : To handle URL String into it's separate properties.
+
+    Syntax      : USING src.url.
+                  DEFINE VARIABLE OBJURL AS CLASS URL   NO-UNDO.
+                  OBJURL = NEW URL('foo://username:password@example.com:8042/over/there/index.dtb?type=animal&name=narwhal#nose').
+
+    Description : 
+
+    Author(s)   : James Bowen 
+    Created     : 13/02/2014 
+    Notes       : First version use it at your own risk.
+  ----------------------------------------------------------------------*/
+/*          This .cls file was created with the Progress AppBuilder.    */
+/*----------------------------------------------------------------------*/
+
+
+
 CLASS src.URL:
 
-    DEFINE PROPERTY URI      AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
-    DEFINE PROPERTY protocol AS CHARACTER    NO-UNDO INITIAL 'http:' GET.   PRIVATE SET. 
-    DEFINE PROPERTY hostname AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
-    DEFINE PROPERTY port     AS INTEGER      NO-UNDO INITIAL 80 GET.        PRIVATE SET. 
-    DEFINE PROPERTY path     AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
-    DEFINE PROPERTY search   AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
-    DEFINE PROPERTY query    AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
-    DEFINE PROPERTY fragment AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
-    DEFINE PROPERTY UserInfo AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
-    DEFINE PROPERTY FILENAME AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
+    /* ***************************  PROPERTIES  ************************** */
+
+    DEFINE PUBLIC PROPERTY URI      AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY protocol AS CHARACTER    NO-UNDO INITIAL 'http:' GET.   PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY hostname AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY port     AS INTEGER      NO-UNDO INITIAL 80 GET.        PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY path     AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY search   AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY query    AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY fragment AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY UserInfo AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
+    DEFINE PUBLIC PROPERTY FILENAME AS CHARACTER    NO-UNDO GET.                   PRIVATE SET. 
 
     CONSTRUCTOR URL(INPUT pchURL AS CHARACTER):
        
@@ -33,8 +54,6 @@ CLASS src.URL:
                     THIS-OBJECT:PORT = 443.
                 WHEN 'ftp:':U THEN    
                     THIS-OBJECT:PORT = 21.
-                WHEN 'sftp:':U THEN    
-                    THIS-OBJECT:PORT = 115.
                 WHEN 'sftp:':U THEN    
                     THIS-OBJECT:PORT = 115.
             END CASE.
